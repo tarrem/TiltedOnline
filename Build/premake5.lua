@@ -182,6 +182,7 @@ workspace ("Tilted Online Framework")
                     "../Libraries/TiltedUI/ThirdParty/CEF/",
                     "../Libraries/TiltedHooks/Code/hooks/include/",
                     "../Libraries/TiltedReverse/ThirdParty/",
+                    "../Libraries/Discord/cpp",
                     connectBasePath .. "/Code/connect/include/",
                     connectBasePath .. "/ThirdParty/GameNetworkingSockets/include/",
                     connectBasePath .. "/ThirdParty/protobuf/src/",
