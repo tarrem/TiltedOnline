@@ -182,7 +182,7 @@ workspace ("Tilted Online Framework")
                     "../Libraries/TiltedUI/ThirdParty/CEF/",
                     "../Libraries/TiltedHooks/Code/hooks/include/",
                     "../Libraries/TiltedReverse/ThirdParty/",
-                    "../Libraries/Discord/cpp",
+                    "../Libraries/discord_game_sdk/cpp",
                     connectBasePath .. "/Code/connect/include/",
                     connectBasePath .. "/ThirdParty/GameNetworkingSockets/include/",
                     connectBasePath .. "/ThirdParty/protobuf/src/",
@@ -196,6 +196,8 @@ workspace ("Tilted Online Framework")
                     "../Code/client/include/**.h",
                     "../Code/client/src/**.cpp",
                     "../Libraries/spdlog/spdlog.cpp",
+                    "../Libraries/discord_game_sdk/cpp/**.cpp",
+                    "../Libraries/discord_game_sdk/cpp/**.h",
                     
                     "../Code/protocol/cpp/client_server.pb.cc",
                     "../Code/protocol/cpp/client_server.pb.h",
@@ -225,6 +227,7 @@ workspace ("Tilted Online Framework")
                     "sqlite3",
                     "imgui",
                     "Version",
+                    "discord_game_sdk.dll.lib",
                 }
                 
                 dependson 
@@ -314,7 +317,7 @@ workspace ("Tilted Online Framework")
                 "Core",
                 "mimalloc",
                 "Lua",
-                "sqlite3"
+                "sqlite3",
             }
             
             dependson 
