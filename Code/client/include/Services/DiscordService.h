@@ -11,7 +11,7 @@ struct ConnectedEvent;
 struct DisconnectedEvent;
 struct ImguiService;
 
-/* Handles Discord Activity (supercedes Rich Presence) */
+/* Handles Discord Integration (currently only Activity/Rich Presence) */
 struct DiscordService
 {
 public:
@@ -23,14 +23,12 @@ public:
     void OnDraw() noexcept;
 
 private:
-    // Discord stuff
-
-    // TODO change to production app client ID
-    const int64_t mc_clientId = 731895579151433788;
-    discord::Core* m_discord; // Discord SDK instance
-    discord::Activity* m_activity; // Current activity status
-    char* m_connectedState = "Online";
-    char* m_disconnectedState = "Offline";
+    /* Discord specific */
+    const int64_t mc_clientId = 731895579151433788; // TODO change to official app client ID
+    discord::Core* m_discord;
+    discord::Activity* m_activity;
+    std::string m_connectedState = "Online";
+    std::string m_disconnectedState = "Offline";
 
     entt::dispatcher& m_dispatcher;
     World& m_world;
