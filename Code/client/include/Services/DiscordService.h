@@ -11,11 +11,15 @@ struct ConnectedEvent;
 struct DisconnectedEvent;
 struct ImguiService;
 
-/* Handles Discord Integration (currently only Activity/Rich Presence) */
+/* 
+    Handles Discord Integration (currently only Activity/Rich Presence) 
+    Represents a single Discord app
+*/
 struct DiscordService
 {
 public:
     DiscordService(World& aWorld, entt::dispatcher& aDispatcher, ImguiService& aImguiService);
+    virtual ~DiscordService();
 
     void OnUpdate(const UpdateEvent&) noexcept;
     void OnConnected(const ConnectedEvent&) noexcept;
@@ -24,11 +28,10 @@ public:
 
 private:
     /* Discord specific */
+    void UpdateActivity();
     const int64_t mc_clientId = 731895579151433788; // TODO change to official app client ID
-    discord::Core* m_discord;
-    discord::Activity* m_activity;
-    std::string m_connectedState = "Online";
-    std::string m_disconnectedState = "Offline";
+    discord::Core* mp_discord;
+    discord::Activity* mp_activity;
 
     entt::dispatcher& m_dispatcher;
     World& m_world;
