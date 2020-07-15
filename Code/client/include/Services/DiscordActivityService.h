@@ -12,14 +12,13 @@ struct DisconnectedEvent;
 struct ImguiService;
 
 /* 
-    Handles Discord Integration (currently only Activity/Rich Presence) 
-    Represents a single Discord app
+    Handles Discord Activity
 */
-struct DiscordService
+struct DiscordActivityService
 {
 public:
-    DiscordService(World& aWorld, entt::dispatcher& aDispatcher, ImguiService& aImguiService);
-    virtual ~DiscordService();
+    DiscordActivityService(World& aWorld, entt::dispatcher& aDispatcher, ImguiService& aImguiService);
+    virtual ~DiscordActivityService();
 
     void OnUpdate(const UpdateEvent&) noexcept;
     void OnConnected(const ConnectedEvent&) noexcept;
@@ -28,10 +27,10 @@ public:
 
 private:
     /* Discord specific */
+    int64_t m_clientId; // App's Client ID from https://discord.com/developers/applications/
+    discord::Core* mp_discord; // Discord SDK app instance
+    discord::Activity* mp_activity; // Keeps track of information to display on Rich Presence
     void UpdateActivity();
-    const int64_t mc_clientId = 731895579151433788; // TODO change to official app client ID
-    discord::Core* mp_discord;
-    discord::Activity* mp_activity;
 
     entt::dispatcher& m_dispatcher;
     World& m_world;

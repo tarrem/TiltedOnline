@@ -10,7 +10,7 @@
 #include <Services/RunnerService.h>
 #include <Services/ImguiService.h>
 #include <Services/ScriptService.h>
-#include <Services/DiscordService.h>
+#include <Services/DiscordActivityService.h>
 
 #include <Events/PreUpdateEvent.h>
 #include <Events/UpdateEvent.h>
@@ -28,7 +28,7 @@ World::World()
     set<CharacterService>(*this, m_dispatcher, m_transport);
     set<TestService>(m_dispatcher, *this, m_transport, ctx<ImguiService>());
     set<ScriptService>(*this, m_dispatcher, ctx<ImguiService>(), m_transport);
-    set<DiscordService>(*this, m_dispatcher, ctx<ImguiService>());
+    set<DiscordActivityService>(*this, m_dispatcher, ctx<ImguiService>());
 }
 
 World::~World() = default;
