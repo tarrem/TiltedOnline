@@ -28,8 +28,8 @@ public:
 private:
     /* Discord specific */
     int64_t m_clientId; // App's Client ID from https://discord.com/developers/applications/
-    discord::Core* mp_discord; // Discord SDK app instance
-    discord::Activity* mp_activity; // Keeps track of information to display on Rich Presence
+    discord::Core* m_pDiscord; // Discord SDK app instance
+    discord::Activity* m_pActivity; // Keeps track of information to display on Rich Presence
     void UpdateActivity();
 
     entt::dispatcher& m_dispatcher;
